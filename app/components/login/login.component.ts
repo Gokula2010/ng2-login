@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { User } from '../../models/user'
-import { GlobalEventManagerService } from '../../services/global-event-manager.service';
 import { AuthService } from '../../services/auth.service';
 @Component({
     moduleId: module.id,
@@ -17,17 +16,14 @@ export class LoginComponent implements OnInit {
     public errorMsg = '';
 
 
-    constructor(private _authService: AuthService, private _router: Router, private _globalEventManagerService: GlobalEventManagerService) {
+    constructor(private _authService: AuthService, private _router: Router) {
         this.model = new User('', '');
     }
 
     ngOnInit() { }
 
     onLogin() {
-        if (this._authService.login(this.model)) {
-            this._globalEventManagerService.showNavbar.emit(true);
-        }
-        else {
+        if (!this._authService.login(this.model)) {
             this.errorMsg = 'Failed to login';
         }
     }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router} from '@angular/router';
 import { User } from '../models/user';
+import { GlobalEventManagerService } from './global-event-manager.service';
 
 @Injectable()
 export class AuthService {
@@ -8,7 +9,7 @@ export class AuthService {
     Users: User[] ;
     token: string;
 
-    constructor(private _router: Router) {
+    constructor(private _router: Router, private _globalEventManagerService: GlobalEventManagerService) {
         this.token = localStorage.getItem('token');
 
         this.Users = [
@@ -24,8 +25,15 @@ export class AuthService {
         if(authenticatedUser && authenticatedUser.password === user.password) {
 
             localStorage.setItem('token', JSON.stringify({ username: authenticatedUser.username} ));
-            this._router.navigate(['/home']);
+            if(authenticatedUser.role == "Admin") 
+                this._router.navigate(['/admin']);
+            else
+                this._router.navigate(['/home']);
+                
             this.isLoggedIn = true;
+
+            this._globalEventManagerService.showNavbar.emit(true);
+
             return true;
         }
         else {
@@ -46,8 +54,10 @@ export class AuthService {
 
      logout() {
         localStorage.removeItem('token');
-         this._router.navigate(['/login']);
-         this.isLoggedIn = false;
+        this._globalEventManagerService.showNavbar.emit(false);
+
+        this._router.navigate(['/login']);
+        this.isLoggedIn = false;
      }
 
      checkCredentials() {
