@@ -140,3 +140,10 @@ nav a.router-link-active {
 * { 
   font-family: Arial, Helvetica, sans-serif; 
 }
+
+div .inner-outlet {
+  margin: 5px;
+  padding: 5px;
+  border-color: red;
+  border-radius: 4px;
+}
