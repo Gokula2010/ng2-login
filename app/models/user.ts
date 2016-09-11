@@ -3,3 +3,15 @@ export class User {
 
     }
 }
+
+
+export class Role {
+    id: number;
+    name: string;
+}
+
+
+export class Hero {
+    id: number;
+    name: string;
+}

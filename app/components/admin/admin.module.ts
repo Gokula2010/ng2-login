@@ -10,6 +10,9 @@ import { AdminRoleComponent } from './admin-role.component';
 import { AdminMenustructureComponent } from './admin-menustructure.component';
 
 
+import { RoleService } from '../../services/role.service';
+
+
 const adminRoutes: Routes = [
     //{ path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] }
     {
@@ -35,6 +38,9 @@ const adminRoutes: Routes = [
         AdminUserComponent,
         AdminRoleComponent,
         AdminMenustructureComponent
+    ],
+    providers: [
+        RoleService
     ]
 })
 export class AdminModule { }
