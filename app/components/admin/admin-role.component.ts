@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Hero, Role } from '../../models/user';
+import { RoleService } from '../../services/role.service';
+
 @Component({
     moduleId: module.id,
     selector: 'my-admin-role',
-    template: '<h3>Role</h3>'
-    //templateUrl: 'admin-role.component.html'
+    templateUrl: 'admin-role.component.html'
 })
 export class AdminRoleComponent implements OnInit {
-    constructor() { }
+    roles: Role[] = [];
 
-    ngOnInit() { }
+    constructor(private _roleService: RoleService) { }
+
+    ngOnInit() { 
+        this._roleService.getRoles().then(roles=> this.roles = roles);
+    }
 }
