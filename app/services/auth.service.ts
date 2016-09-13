@@ -20,13 +20,12 @@ export class AuthService {
      }
 
      login(login: Login) {
-         debugger;
         var authenticatedUser = this.users.find(u=> u.username === login.username);
 
         if(authenticatedUser && authenticatedUser.password === login.password) {
 
             localStorage.setItem('token', JSON.stringify({ username: authenticatedUser.username} ));
-            if(authenticatedUser.role_name == "Admin") 
+            if(authenticatedUser.role_name == "admin") 
                 this._router.navigate(['/admin']);
             else
                 this._router.navigate(['/home']);

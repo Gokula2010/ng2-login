@@ -8,8 +8,8 @@ export class InMemoryDataService implements InMemoryDbService {
         ];
 
         let users = [
-            { id: 1, username: 'gokul', firstname:'Gokul', lastname: 'Ranga', password: 'gokul', role_id: 1 },
-            { id: 2, username: 'test', firstname:'Test', lastname: 'Test', password: 'test', role_id: 2 }
+            { id: 1, username: 'gokul', firstname:'Gokul', lastname: 'Ranga', password: 'gokul', role_id: 1, role_name: 'admin' },
+            { id: 2, username: 'test', firstname:'Test', lastname: 'Test', password: 'test', role_id: 2, role_name:'engineer' }
         ];
         let heroes = [
             { id: 11, name: 'Mr. Nice' },

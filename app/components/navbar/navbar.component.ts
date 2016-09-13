@@ -18,9 +18,9 @@ export class NavbarComponent implements OnInit {
     menus: MenuStructure[];
 
     lstMenu: MenuStructure[] = [
-        { id: 1, name: 'Home', displayName: 'Home', url: '/home', role: 'Engineer' },
-        { id: 2, name: 'About', displayName: 'About', url: '/about', role: 'Engineer' },
-        { id: 3, name: 'Admin', displayName: 'Admin', url: '/admin', role: 'Admin' }
+        { id: 1, name: 'Home', displayName: 'Home', url: '/home', role: 'engineer' },
+        { id: 2, name: 'About', displayName: 'About', url: '/about', role: 'engineer' },
+        { id: 3, name: 'Admin', displayName: 'Admin', url: '/admin', role: 'admin' }
     ];
 
     constructor(private _globalEventManagerService: GlobalEventManagerService, private _authService: AuthService) {
@@ -28,7 +28,9 @@ export class NavbarComponent implements OnInit {
             this.showNavbar = mode;
 
             this.user = this._authService.getLoggedUser();
-            this.menus = this.lstMenu.filter(x => x.role == this.user.role);
+
+            if(this.user)
+                this.menus = this.lstMenu.filter(x => x.role == this.user.role_name);
 
         })
     }

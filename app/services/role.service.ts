@@ -20,7 +20,7 @@ export class RoleService {
         return this.http.get(this.rolesUrl)
             .toPromise()
             .then(response => {
-                console.log(JSON.stringify(response.json().data))
+                //console.log(JSON.stringify(response.json().data))
                 return response.json().data as Role[];
             })
             .catch(this.handleError);
@@ -30,7 +30,7 @@ export class RoleService {
         return this.http.get(this.heroesUrl)
             .toPromise()
             .then(response => {
-                console.log(JSON.stringify(response.json().data))
+                //console.log(JSON.stringify(response.json().data))
                 return response.json().data as Hero[];
             })
             .catch(this.handleError);
