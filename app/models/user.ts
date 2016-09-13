@@ -1,17 +1,21 @@
+export class Login {
+    constructor(public username: string, public password: string) { }
+}
+
+
 export class User {
-    constructor(public username: string, public password: string, public role: string = 'Engineer') {
+    constructor(public username: string, public firstname:string, public lastname: string, public password: string, public role_id: number, public role_name: string) {
 
     }
 }
 
 
 export class Role {
-    id: number;
-    name: string;
+    constructor( public id: number, public name: string) { }
+    
 }
 
 
 export class Hero {
-    id: number;
-    name: string;
+    constructor(public id: number, public name: string) { }
 }

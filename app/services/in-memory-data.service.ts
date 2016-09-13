@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular2-in-memory-web-api';
-
+import { User, Role, Hero } from '../models/user';
 export class InMemoryDataService implements InMemoryDbService {
     createDb() {
         let roles = [
@@ -9,7 +9,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
         let users = [
             { id: 1, username: 'gokul', firstname:'Gokul', lastname: 'Ranga', password: 'gokul', role_id: 1 },
-            { id: 2, username: 'test', firstname:'Test', lastname: 'Test', password: 'gokul', role_id: 2 }
+            { id: 2, username: 'test', firstname:'Test', lastname: 'Test', password: 'test', role_id: 2 }
         ];
         let heroes = [
             { id: 11, name: 'Mr. Nice' },

@@ -13,6 +13,7 @@ import { AdminMenustructureComponent } from './admin-menustructure.component';
 
 
 import { RoleService } from '../../services/role.service';
+import { UserService } from '../../services/user.service';
 
 
 const adminRoutes: Routes = [
@@ -43,7 +44,8 @@ const adminRoutes: Routes = [
         AdminMenustructureComponent
     ],
     providers: [
-        RoleService
+        RoleService,
+        UserService
     ]
 })
 export class AdminModule { }
