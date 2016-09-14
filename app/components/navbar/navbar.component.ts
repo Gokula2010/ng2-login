@@ -16,6 +16,8 @@ export class NavbarComponent implements OnInit {
     showNavbar: boolean = false;
     user: User;
     menus: MenuStructure[];
+    newMenus: Array<any> = [];
+
 
     lstMenu: MenuStructure[] = [
         { id: 1, name: 'Home', displayName: 'Home', url: '/home', role: 'engineer' },
@@ -40,15 +42,15 @@ export class NavbarComponent implements OnInit {
 
 
     lstNewMenu = [{
-            "id": 1,
-            "name": "home",
-            "display_name": "Home",
-            "url": "home",
-            "parent_id": 0,
-            "rold_id": 1,
-            "role_name": "engineer",
-            "submenu": []
-        }, {
+        "id": 1,
+        "name": "home",
+        "display_name": "Home",
+        "url": "home",
+        "parent_id": 0,
+        "rold_id": 1,
+        "role_name": "engineer",
+        "submenu": []
+    }, {
             "id": 1,
             "name": "about",
             "display_name": "About",
@@ -74,22 +76,22 @@ export class NavbarComponent implements OnInit {
                 "rold_id": 1,
                 "role_name": "admin"
             }, {
-                "id": 1,
-                "name": "user",
-                "display_name": "User",
-                "url": "admin/user",
-                "parent_id": 0,
-                "rold_id": 1,
-                "role_name": "admin"
-            }, {
-                "id": 1,
-                "name": "menustructure",
-                "display_name": "Menu Structure",
-                "url": "admin/menustructure",
-                "parent_id": 0,
-                "rold_id": 1,
-                "role_name": "admin"
-            }]
+                    "id": 1,
+                    "name": "user",
+                    "display_name": "User",
+                    "url": "admin/user",
+                    "parent_id": 0,
+                    "rold_id": 1,
+                    "role_name": "admin"
+                }, {
+                    "id": 1,
+                    "name": "menustructure",
+                    "display_name": "Menu Structure",
+                    "url": "admin/menustructure",
+                    "parent_id": 0,
+                    "rold_id": 1,
+                    "role_name": "admin"
+                }]
         }
     ];
 
@@ -99,8 +101,10 @@ export class NavbarComponent implements OnInit {
 
             this.user = this._authService.getLoggedUser();
 
-            if (this.user)
-                this.menus = this.lstMenu.filter(x => x.role == this.user.role_name);
+            if (this.user) {
+                //this.menus = this.lstMenu.filter(x => x.role == this.user.role_name);
+                this.newMenus = this.lstNewMenu.filter(x => x.role_name == this.user.role_name);
+            }
 
         })
     }

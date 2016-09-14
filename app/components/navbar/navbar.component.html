@@ -63,9 +63,9 @@
                 </ul>
             </li>
         </ul>-->
-        <div *ngIf="lstNewMenu && showNavbar">
+        <div *ngIf="newMenus && showNavbar">
 
-            <ul class="nav navbar-nav" *ngFor="let pm of lstNewMenu">
+            <ul class="nav navbar-nav" *ngFor="let pm of newMenus">
                 <li *ngIf="pm.submenu.length == 0">
                     <a routerLink="{{pm.url}}">{{pm.display_name}}</a>
                 </li>
