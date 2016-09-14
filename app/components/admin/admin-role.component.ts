@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { Hero, Role } from '../../models/user';
 import { RoleService } from '../../services/role.service';

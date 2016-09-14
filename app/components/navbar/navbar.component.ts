@@ -22,6 +22,76 @@ export class NavbarComponent implements OnInit {
         { id: 2, name: 'About', displayName: 'About', url: '/about', role: 'engineer' },
         { id: 3, name: 'Admin', displayName: 'Admin', url: '/admin', role: 'admin' }
     ];
+    // lstNewMenu: NewMenuStructure[] = [
+    //     { id: 1, 
+    //     name: 'file', display_name: 'File', url: '', parent_id: 0, rold_id: 1, role_name: 'engineer', 
+    //     submenu: [{ id: 2, name: 'new_file', display_name: 'New File', url: '', parent_id: 1, rold_id: 1, role_name: 'engineer', submenu: [] }] },
+    //     // ,
+    //     // { id: 3, name:'new_window', display_name: 'New Window', url: '', parent_id: 1, rold_id: 1,  role_name: 'engineer'},
+    //     // { id: 4, name:'exit_window', display_name: 'Exit Window', url: '', parent_id: 1, rold_id: 1,  role_name: 'engineer'},
+    //     // { id: 5, name:'exit', display_name: 'Exit', url: '', parent_id: 1, rold_id: 1,  role_name: 'engineer'},
+
+    //     // { id: 6, name:'edit', display_name: 'File', url: '', parent_id: 0, rold_id: 1,  role_name: 'engineer'},
+    //     // { id: 7, name:'cut', display_name: 'Cut', url: '', parent_id: 6, rold_id: 1,  role_name: 'engineer'},
+    //     // { id: 8, name:'copy', display_name: 'Copy', url: '', parent_id: 6, rold_id: 1,  role_name: 'engineer'},
+    //     // { id: 9, name:'paste', display_name: 'Paste', url: '', parent_id: 6, rold_id: 1,  role_name: 'engineer'},
+    //     // { id: 10, name:'format', display_name: 'Format', url: '', parent_id: 6, rold_id: 1,  role_name: 'engineer'}        
+    // ]
+
+
+    lstNewMenu = [{
+            "id": 1,
+            "name": "home",
+            "display_name": "Home",
+            "url": "home",
+            "parent_id": 0,
+            "rold_id": 1,
+            "role_name": "engineer",
+            "submenu": []
+        }, {
+            "id": 1,
+            "name": "about",
+            "display_name": "About",
+            "url": "about",
+            "parent_id": 0,
+            "rold_id": 1,
+            "role_name": "engineer",
+            "submenu": []
+        }, {
+            "id": 1,
+            "name": "admin",
+            "display_name": "Admin",
+            "url": "home",
+            "parent_id": 0,
+            "rold_id": 1,
+            "role_name": "admin",
+            "submenu": [{
+                "id": 1,
+                "name": "role",
+                "display_name": "Role",
+                "url": "admin/role",
+                "parent_id": 0,
+                "rold_id": 1,
+                "role_name": "admin"
+            }, {
+                "id": 1,
+                "name": "user",
+                "display_name": "User",
+                "url": "admin/user",
+                "parent_id": 0,
+                "rold_id": 1,
+                "role_name": "admin"
+            }, {
+                "id": 1,
+                "name": "menustructure",
+                "display_name": "Menu Structure",
+                "url": "admin/menustructure",
+                "parent_id": 0,
+                "rold_id": 1,
+                "role_name": "admin"
+            }]
+        }
+    ];
 
     constructor(private _globalEventManagerService: GlobalEventManagerService, private _authService: AuthService) {
         this._globalEventManagerService.showNavbar.subscribe((mode: boolean) => {
@@ -29,7 +99,7 @@ export class NavbarComponent implements OnInit {
 
             this.user = this._authService.getLoggedUser();
 
-            if(this.user)
+            if (this.user)
                 this.menus = this.lstMenu.filter(x => x.role == this.user.role_name);
 
         })
@@ -42,3 +112,14 @@ export class NavbarComponent implements OnInit {
     }
 }
 
+
+export class NewMenuStructure {
+    public id: number;
+    public name: string;
+    public display_name: string;
+    public url: string;
+    public parent_id: number;
+    public rold_id: number;
+    public role_name: string;
+    public submenu: NewMenuStructure[];
+}

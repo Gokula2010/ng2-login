@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 

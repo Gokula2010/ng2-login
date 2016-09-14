@@ -1,19 +1,28 @@
-<div class="col-md-6">
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <!--<th>User Id</th>-->
-                <th>User Name</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let u of users">
-                <!--<td></td>-->
-                <td>{{u.username}}</td>
-                <td>{{u.role}}</td>
-                
-            </tr>
-        </tbody>
-    </table>
-</div>
+<accordion>
+    <accordion-group heading="User" isOpen="true">
+        <div class="col-md-6">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <!--<th>User Id</th>-->
+                        <th>User Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let u of users">
+                        <!--<td></td>-->
+                        <td>{{u.username}}</td>
+                        <td>{{u.firstname}}</td>
+                        <td>{{u.lastname}}</td>
+                        <td>{{u.role_name}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </accordion-group>
+
+</accordion>

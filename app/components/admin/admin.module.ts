@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
+import { Ng2BootstrapModule  } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { Routes, RouterModule } from '@angular/router';
 
@@ -34,6 +35,7 @@ const adminRoutes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
+        Ng2BootstrapModule,
         RouterModule.forChild(adminRoutes)
     ],
     declarations: [
