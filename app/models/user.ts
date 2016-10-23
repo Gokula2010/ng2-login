@@ -19,3 +19,7 @@ export class Role {
 export class Hero {
     constructor(public id: number, public name: string) { }
 }
+
+export class Order {
+    constructor(public orderID: number, public customerName: string, public shipperCity: string, public isShipped: boolean) { }
+}
